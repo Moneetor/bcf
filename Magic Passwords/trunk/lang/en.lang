@@ -1,0 +1,42 @@
+L0001:Your password
+L0002:Encoded password
+CK0001:Show
+L0003:Upperletters count
+L0004:Iterations
+L0005:Length of password
+B0001:Copy to clipboard
+B0002:About
+B0003:Donate
+B0003h:Click this button to make donation.
+B0004:Clear clipboard
+B0004h:Click for clear clipboard
+B0005:Changelog
+B0006:Add language
+B0006h:Downloads and add language to list
+T0001:Click to show/restore
+C1001:About
+L1001:Version: 1.0.4
+L1002:Author's site
+L1003:Copyright: 2014 MON.NET, 2014 Moneetor.
+L1004:Software for fast and easy making strong passwords.
+L2001:Copied to clipboard.
+L2002:Clipboard cleared!
+C3001:Changelog
+B4001:Close
+B4002:More
+B4003:Copy
+CK4001:Show
+H4001:Close and ends application
+H4002:Click button to show all options, popup for menu.
+H4003:Copy to clipboard
+H4004:Your password
+H4005:Upper case letters
+H4006:Loops
+H4007:Answer length
+H4008:Clear clipboard
+H4009:Click for make donation.
+H4010:Changelog
+M4001:Clear
+M4002:Donations
+M4003:Changelog
+

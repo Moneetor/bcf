@@ -1,0 +1,14 @@
+Wersja 1.0.3
+============
+
+Lepszy wygl¹d
+Kompaktowy panel
+
+
+Wersja 1.0.2
+============
+
+Powiadomienie o skopiowaniu do schowka.
+Czyszczenie schowka.
+Historia zmian.
+Progam wyœwietla komunikat, ¿e skopiowa³ do schowka lub go opró¿ni³.
