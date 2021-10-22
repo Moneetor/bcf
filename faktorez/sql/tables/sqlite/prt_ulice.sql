@@ -1,0 +1,10 @@
+CREATE TABLE prt_ulice (
+id_umow INTEGER PRIMARY KEY AUTOINCREMENT,
+ulica VARCHAR(35) default NULL,
+nr_domu1 SMALLINT(5),
+nr_domu2 CHAR(1),
+lokal1 SMALLINT(5),
+lokal2 CHAR(1),
+zip CHAR(6),
+city SMALLINT NOT NULL DEFAULT 1
+);

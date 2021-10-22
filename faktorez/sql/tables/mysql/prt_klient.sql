@@ -1,0 +1,8 @@
+CREATE TABLE prt_klient (
+  id_k INTEGER unsigned PRIMARY KEY AUTO_INCREMENT,
+  symbol varchar(20) default NULL,
+  nazwisko TEXT,
+  adres INTEGER NOT NULL DEFAULT 1,
+  NIP VARCHAR(13) DEFAULT NULL,
+  REGON VARCHAR(9) DEFAULT NULL
+) ENGINE=InnoDB;

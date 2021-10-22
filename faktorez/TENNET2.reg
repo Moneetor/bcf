@@ -1,0 +1,23 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\ODBC]
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI]
+
+
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\ODBC Data Sources]
+"Faktorez"="SQLite3 ODBC Driver"
+"TENNET2"="MySQL ODBC 3.51 Driver"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\TENNET2]
+"Driver"="C:\\WINDOWS\\system32\\\\myodbc3.dll"
+"Description"="MySQL ODBC 3.51 Driver DSN"
+"Database"="TENNET2"
+"Server"="192.169.0.1"
+"User"="Zyzo"
+"Password"="vega001"
+"Port"="3306"
+"Option"="16387"
+"Stmt"=""
+

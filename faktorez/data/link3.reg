@@ -1,0 +1,107 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\ODBC]
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI]
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\BlowNotes]
+"Driver"="C:\\WINDOWS\\system32\\sqlite3odbc.dll"
+"Description"=""
+"Database"="F:\\DOCS\\bcb5\\BlowNotes\\data\\notes.sqlite"
+"Timeout"="500"
+"StepAPI"="0"
+"SyncPragma"="NORMAL"
+"NoTXN"="0"
+"LongNames"="0"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\CennikSimmtech]
+"Driver"="C:\\WINDOWS\\system32\\sqlite3odbc.dll"
+"Description"=""
+"Database"="F:\\DOCS\\bcb6\\cennikSimmtech\\database\\cennik.sqlite"
+"Timeout"="500"
+"StepAPI"="0"
+"SyncPragma"="NORMAL"
+"NoTXN"="0"
+"LongNames"="0"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Faktorez]
+"Driver"="C:\\WINDOWS\\system32\\sqlite3odbc.dll"
+"Description"=""
+"Database"="F:\\DOCS\\bcb5\\faktorz\\data\\faktorez.sqlite"
+"Timeout"="500"
+"StepAPI"="0"
+"SyncPragma"="NORMAL"
+"NoTXN"="0"
+"LongNames"="0"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\MS Access Database]
+"Driver"="C:\\WINDOWS\\system32\\odbcjt32.dll"
+"DriverId"=dword:00000019
+"SafeTransactions"=dword:00000000
+"UID"=""
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\MS Access Database\Engines]
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\MS Access Database\Engines\Jet]
+"ImplicitCommitSync"=""
+"Threads"=dword:00000003
+"UserCommitSync"="Yes"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\myodbc3-test]
+"Driver"="C:\\WINDOWS\\system32\\myodbc3.dll"
+"Description"="MySQL ODBC 3.51 TEST DSN"
+"Database"="test"
+"Server"="localhost"
+"User"="root"
+"Password"=""
+"Port"="3306"
+"Option"="3"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\ODBC Data Sources]
+"myodbc3-test"="MySQL ODBC 3.51 Driver"
+"TENNET2"="MySQL ODBC 3.51 Driver"
+"BlowNotes"="SQLite3 ODBC Driver"
+"CennikSimmtech"="SQLite3 ODBC Driver"
+"MS Access Database"="Microsoft Access Driver (*.mdb)"
+"Pliki programu Excel"="Microsoft Excel Driver (*.xls)"
+"Pliki programu dBase"="Microsoft dBase Driver (*.dbf)"
+"Faktorez"="SQLite3 ODBC Driver"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Pliki programu dBase]
+"Driver"="C:\\WINDOWS\\system32\\odbcjt32.dll"
+"DriverId"=dword:00000215
+"SafeTransactions"=dword:00000000
+"UID"=""
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Pliki programu dBase\Engines]
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Pliki programu dBase\Engines\Xbase]
+"ImplicitCommitSync"=""
+"Threads"=dword:00000003
+"UserCommitSync"="Yes"
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Pliki programu Excel]
+"Driver"="C:\\WINDOWS\\system32\\odbcjt32.dll"
+"DriverId"=dword:00000316
+"SafeTransactions"=dword:00000000
+"UID"=""
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Pliki programu Excel\Engines]
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\Pliki programu Excel\Engines\Excel]
+"ImplicitCommitSync"=""
+"Threads"=dword:00000003
+"UserCommitSync"="Yes"
+"FirstRowHasNames"=hex:01
+
+[HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\TENNET2]
+"Driver"="C:\\WINDOWS\\system32\\myodbc3.dll"
+"Description"="MySQL ODBC 3.51 Driver DSN"
+"Database"="TENNET2"
+"Server"="192.169.0.1"
+"User"="Zyzo"
+"Password"=""
+"Port"="3306"
+"Option"="3"
+"Stmt"=""
+

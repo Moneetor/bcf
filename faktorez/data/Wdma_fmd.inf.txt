@@ -1,0 +1,592 @@
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%FMINC%
+DriverVer =11/08/1999,5.00.1319.200
+LayoutFile=layout.inf
+CatalogFile=fmd_111.cat
+
+[SourceDisksNames]
+222="ForteMedia WDM Driver Disk","",1
+
+[SourceDisksFiles]
+fm801.sys=222
+fmjoy.sys=222
+fmpnp.sys=222
+soundcfg.ini=222
+Ftdll32.dll=222
+fmedia.cpl=222
+fmctrl.exe=222
+fmctrl.hlp=222
+left.wav=222
+right.wav=222
+fleft.wav=222
+fright.wav=222
+rleft.wav=222
+rright.wav=222
+center.wav=222
+subw.wav=222
+fmjoyd.vxd=222
+fmjoyp.vxd=222
+fmd_111.cat=0,,920
+
+[Manufacturer]
+%CLMfgName%=ForteMedia
+
+[ForteMedia]
+%*WDM_FM801.DeviceDesc%=WDM_FM801, PCI\VEN_1319&DEV_0801&SUBSYS_13191319
+%FM802.DeviceDesc%=WDM_FM802, PCI\VEN_1319&DEV_0802&SUBSYS_13191319
+%FM802_GamePortEmu.DeviceDesc%=FM802_GPEMU_Device, VIRTUAL\FMedia-ISAGamePort
+
+[DestinationDirs]
+WDM_FM80198.CopyList=10,system32\drivers ; %SystemRoot%\system32\drivers
+WDM_FM80298.CopyList=10,system32\drivers ; %SystemRoot%\system32\drivers
+WDM_FM801.CopyList=10,system32\drivers ; %SystemRoot%\system32\drivers
+WDM_FM802.CopyList=10,system32\drivers ; %SystemRoot%\system32\drivers
+WDM_FM802.CopyList.NT=10,system32\drivers ; %SystemRoot%\system32\drivers
+Ini.CopyList=10
+DLLFiles.CopyList=11
+AuxFiles.CopyList=11
+FM802.CopyList=11	; %SystemRoot%\system
+FM802_GPEMU.CopyList=11
+
+[WDM_FM801]
+AlsoInstall=ks.registration(ks.inf),wdmaudio.registration(wdmaudio.inf)
+CopyFiles=WDM_FM80198.CopyList, Ini.CopyList, DLLFiles.CopyList, AuxFiles.CopyList
+AddReg=FM801.AddReg, FM801_MIXER.AddReg, FM801_OPTIONS.AddReg, FM801_GUID.AddReg
+
+[WDM_FM802]
+CopyFiles=FM802.CopyList
+AddReg=FM802.AddReg
+
+[FM802_GPEMU_Device]
+CopyFiles=FM802_GPEMU.CopyList
+AddReg=JOYSTICK.AddReg, FM_JSTICK.AddReg
+
+[WDM_FM80198.CopyList]
+fm801.sys
+
+[WDM_FM801.CopyList]
+fm801.sys
+
+[Ini.CopyList]
+soundcfg.ini,soundcfg.ini,,6
+
+[DLLFiles.CopyList]
+Ftdll32.dll,FTdll32.dll,,6
+
+[AuxFiles.CopyList]
+fmedia.cpl,fmedia.cpl,,6
+fmctrl.exe,fmctrl.exe,,6
+fmctrl.hlp,fmctrl.hlp,,6
+left.wav,left.wav,,6
+right.wav,right.wav,,6
+fleft.wav,fleft.wav,,6
+fright.wav,fright.wav,,6
+rleft.wav,rleft.wav,,6
+rright.wav,rright.wav,,6
+center.wav,center.wav,,6
+subw.wav,subw.wav,,6
+
+[FM802.CopyList]
+fmjoyd.vxd,fmjoyd.vxd,,6
+fmjoyp.vxd,fmjoyp.vxd,,6 
+
+[FM802_GPEMU.CopyList]
+vjoyd.vxd,,
+msjstick.drv,,
+
+[FM801.AddReg]
+HKLM,SOFTWARE\ForteMedia\Wdm801,MaxSpeakers,0x00010001,2 
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,fm801.sys
+HKR,,NTMPDriver,,"fm801.sys,sbemul.sys"
+
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+
+HKR,Drivers\wave\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv, Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv, Description,,%*WDM_FM801.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%*WDM_FM801.DeviceDesc%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%*WDM_FM801.DeviceDesc%
+
+HKCU,Software\Microsoft\Windows\CurrentVersion\Multimedia\MIDIMap,CurrentInstrument,%WDM.SwSynth.szPname%
+
+[FM801_MIXER.AddReg]
+HKR,Config, WaveOutVolumeMax,    0x10001, 00, 00, 0C, 00
+HKR,Config, WaveOutVolumeMin,    0x10001, 00, 80, DD, FF
+HKR,Config, WaveOutVolumeLeft,   0x10001, 00, 00, 00, 00
+HKR,Config, WaveOutVolumeRight,  0x10001, 00, 00, 00, 00
+
+HKR,Config, FMSynthVolumeMax,    0x10001, 00, 00, 0C, 00
+HKR,Config, FMSynthVolumeMin,    0x10001, 00, 80, DD, FF
+HKR,Config, FMSynthVolumeLeft,   0x10001, 00, 00, 00, 00
+HKR,Config, FMSynthVolumeRight,  0x10001, 00, 00, 00, 00
+HKR,Config, FMSynthMute,         0x10001, 00, 00, 00, 00
+
+HKR,Config, CDVolumeMax,         0x10001, 00, 00, 0C, 00
+HKR,Config, CDVolumeMin,         0x10001, 00, 80, DD, FF
+HKR,Config, CDVolumeLeft,        0x10001, 00, 00, 00, 00
+HKR,Config, CDVolumeRight,       0x10001, 00, 00, 00, 00
+HKR,Config, CDMute,              0x10001, 00, 00, 00, 00
+
+HKR,Config, LineInVolumeMax,     0x10001, 00, 00, 0C, 00
+HKR,Config, LineInVolumeMin,     0x10001, 00, 80, DD, FF
+HKR,Config, LineInVolumeLeft,    0x10001, 00, 00, 00, 00
+HKR,Config, LineInVolumeRight,   0x10001, 00, 00, 00, 00
+HKR,Config, LineInMute,          0x10001, 00, 00, 00, 00
+
+HKR,Config, Mic20DBGain,         0x10001, 01, 00, 00, 00
+HKR,Config, MicVolumeMax,        0x10001, 00, 00, 0C, 00
+HKR,Config, MicVolumeMin,        0x10001, 00, 80, DD, FF
+HKR,Config, MicVolumeLeft,       0x10001, 00, 00, 00, 00
+HKR,Config, MicVolumeRight,      0x10001, 00, 00, 00, 00
+HKR,Config, MicMute,             0x10001, 01, 00, 00, 00
+
+HKR,Config, VideoVolumeMax,      0x10001, 00, 00, 0C, 00
+HKR,Config, VideoVolumeMin,      0x10001, 00, 80, DD, FF
+HKR,Config, VideoVolumeLeft,     0x10001, 00, 00, 00, 00
+HKR,Config, VideoVolumeRight,    0x10001, 00, 00, 00, 00
+HKR,Config, VideoMute,           0x10001, 00, 00, 00, 00
+
+HKR,Config, AuxVolumeMax,        0x10001, 00, 00, 0C, 00
+HKR,Config, AuxVolumeMin,        0x10001, 00, 80, DD, FF
+HKR,Config, AuxVolumeLeft,       0x10001, 00, 00, 00, 00
+HKR,Config, AuxVolumeRight,      0x10001, 00, 00, 00, 00
+HKR,Config, AuxMute,             0x10001, 00, 00, 00, 00
+
+HKR,Config, PhoneVolumeMax,      0x10001, 00, 00, 0C, 00
+HKR,Config, PhoneVolumeMin,      0x10001, 00, 80, DD, FF
+HKR,Config, PhoneVolumeLeft,     0x10001, 00, 00, 00, 00
+HKR,Config, PhoneVolumeRight,    0x10001, 00, 00, 00, 00
+HKR,Config, PhoneMute,           0x10001, 00, 00, 00, 00
+
+HKR,Config, I2SVolumeMax,        0x10001, 00, 00, 00, 00
+HKR,Config, I2SVolumeMin,        0x10001, 00, 80, DD, FF
+HKR,Config, I2SVolumeLeft,       0x10001, 00, 00, 00, 00
+HKR,Config, I2SVolumeRight,      0x10001, 00, 00, 00, 00
+HKR,Config, I2SMute,             0x10001, 00, 00, 00, 00
+
+HKR,Config, MonoVolumeMax,       0x10001, 00, 00, 0C, 00
+HKR,Config, MonoVolumeMin,       0x10001, 00, 80, DD, FF
+HKR,Config, MonoVolumeLeft,      0x10001, 00, 00, 00, 00
+HKR,Config, MonoVolumeRight,     0x10001, 00, 00, 00, 00
+HKR,Config, MonoMute,            0x10001, 00, 00, 00, 00
+
+HKR,Config, MasterVolumeMax,     0x10001, 00, 00, 00, 00
+HKR,Config, MasterVolumeMin,     0x10001, 00, 80, D1, FF
+HKR,Config, MasterVolumeLeft,    0x10001, 00, 00, 00, 00
+HKR,Config, MasterVolumeRight,   0x10001, 00, 00, 00, 00
+HKR,Config, MasterMute,          0x10001, 00, 00, 00, 00
+
+HKR,Config, SurroundVolumeMax,     0x10001, 00, 00, 00, 00
+HKR,Config, SurroundVolumeMin,     0x10001, 00, 80, D1, FF
+HKR,Config, SurroundVolumeLeft,    0x10001, 00, 00, 00, 00
+HKR,Config, SurroundVolumeRight,   0x10001, 00, 00, 00, 00
+HKR,Config, SurroundMute,          0x10001, 00, 00, 00, 00
+
+HKR,Config, FrontVolumeMax,    0x10001, 00, 00, 00, 00
+HKR,Config, FrontVolumeMin,    0x10001, 00, 80, D1, FF
+HKR,Config, FrontVolumeLeft,   0x10001, 00, 00, 00, 00
+HKR,Config, FrontVolumeRight,  0x10001, 00, 00, 00, 00
+HKR,Config, FrontMute,         0x10001, 00, 00, 00, 00
+
+HKR,Config, MicInVolumeMax,      0x10001, 00, 80, 16, 00
+HKR,Config, MicInVolumeMin,      0x10001, 00, 00, 00, 00
+HKR,Config, MicInVolumeLeft,     0x10001, 00, 00, 00, 00
+HKR,Config, MicInVolumeRight,    0x10001, 00, 00, 00, 00
+
+HKR,Config, CDInVolumeMax,       0x10001, 00, 80, 16, 00
+HKR,Config, CDInVolumeMin,       0x10001, 00, 00, 00, 00
+HKR,Config, CDInVolumeLeft,      0x10001, 00, 00, 00, 00
+HKR,Config, CDInVolumeRight,     0x10001, 00, 00, 00, 00
+
+HKR,Config, VideoInVolumeMax,    0x10001, 00, 80, 16, 00
+HKR,Config, VideoInVolumeMin,    0x10001, 00, 00, 00, 00
+HKR,Config, VideoInVolumeLeft,   0x10001, 00, 00, 00, 00
+HKR,Config, VideoInVolumeRight,  0x10001, 00, 00, 00, 00
+
+HKR,Config, AuxInVolumeMax,      0x10001, 00, 80, 16, 00
+HKR,Config, AuxInVolumeMin,      0x10001, 00, 00, 00, 00
+HKR,Config, AuxInVolumeLeft,     0x10001, 00, 00, 00, 00
+HKR,Config, AuxInVolumeRight,    0x10001, 00, 00, 00, 00
+
+HKR,Config, LineInInVolumeMax,   0x10001, 00, 80, 16, 00
+HKR,Config, LineInInVolumeMin,   0x10001, 00, 00, 00, 00
+HKR,Config, LineInInVolumeLeft,  0x10001, 00, 00, 00, 00
+HKR,Config, LineInInVolumeRight, 0x10001, 00, 00, 00, 00
+
+HKR,Config, MixInVolumeMax,      0x10001, 00, 80, 16, 00
+HKR,Config, MixInVolumeMin,      0x10001, 00, 00, 00, 00
+HKR,Config, MixInVolumeLeft,     0x10001, 00, 00, 00, 00
+HKR,Config, MixInVolumeRight,    0x10001, 00, 00, 00, 00
+
+HKR,Config, PhoneInVolumeMax,    0x10001, 00, 80, 16, 00
+HKR,Config, PhoneInVolumeMin,    0x10001, 00, 00, 00, 00
+HKR,Config, PhoneInVolumeLeft,   0x10001, 00, 00, 00, 00
+HKR,Config, PhoneInVolumeRight,  0x10001, 00, 00, 00, 00
+
+HKR,Config, WaveIn_Select,       0x10001, 06, 00, 00, 00
+
+HKR,Config, CenterVolumeMax,     0x10001, 00, 00, 00, 00
+HKR,Config, CenterVolumeMin,     0x10001, 00, 80, D1, FF
+HKR,Config, CenterVolumeLevel,   0x10001, 00, 00, 00, 00
+HKR,Config, CenterMute,          0x10001, 00, 00, 00, 00
+
+HKR,Config, LFEVolumeMax,     0x10001, 00, 00, 00, 00
+HKR,Config, LFEVolumeMin,     0x10001, 00, 80, D1, FF
+HKR,Config, LFEVolumeLevel,   0x10001, 00, 00, 00, 00
+HKR,Config, LFEMute,          0x10001, 00, 00, 00, 00
+
+HKR,Config, 3DCenterMax,         0x10001, 00, 00, 0F, 00
+HKR,Config, 3DCenterMin,         0x10001, 00, 00, 00, 00
+HKR,Config, 3DCenterLevel,       0x10001, 00, 00, 00, 00
+
+HKR,Config, 3DDepthMax,          0x10001, 00, 00, 0F, 00
+HKR,Config, 3DDepthMin,          0x10001, 00, 00, 00, 00
+HKR,Config, 3DDepthLevel,        0x10001, 00, 00, 00, 00
+
+HKR,Config, 3DEnable,            0x10001, 00, 00, 00, 00
+HKR,Config, SPDIFOut,            0x10001, 01, 00, 00, 00
+
+HKR,Config, Playback_Volume_Control_Enable, 	0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Aux_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Wave_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_FM_Syn_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_CD_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Mic_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_LineIn_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_I2S_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Video_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Phone_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Mono_Enable,		0x10001, 01, 00, 00, 00
+
+HKR,Config, Record_Aux_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Record_Mic_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Record_Mix_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Record_CD_Enable,			0x10001, 01, 00, 00, 00
+HKR,Config, Record_LineIn_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Record_Video_Enable,		0x10001, 01, 00, 00, 00
+HKR,Config, Record_Phone_Enable,		0x10001, 01, 00, 00, 00
+
+HKR,Config, 3D_Enhancement_Depth_Enable,	0x10001, 01, 00, 00, 00
+HKR,Config, 3D_Enhancement_Center_Enable,	0x10001, 01, 00, 00, 00
+
+[FM801_OPTIONS.AddReg]
+HKR,Drivers,MIGRATED,,0
+HKLM,%KEY_IOC%\asm,,,
+HKLM,%KEY_IOC%\Rec,,,
+HKLM,%KEY_IOC%\MPlay,,,
+HKLM,Software\Microsoft\Windows\CurrentVersion\Run,SystemTray,0,"SysTray.Exe"
+HKLM,%KEY_IOC%\Vol,,,
+HKLM,software\Microsoft\windows\CurrentVersion\Run,FmctrlTray,,"Fmctrl.EXE"
+
+;
+HKR,Config, SPDIF_Out_Enable, 0x10001, 01, 00, 00, 00
+HKR,Config, SPDIF_In_Select, 0x10001, 00, 00, 00, 00
+HKR,Config, DAC_Invert_Bit, 0x10001, 01, 00, 00, 00
+HKR,Config, Playback_Mode, 0x10001, 00, 00, 00, 00
+HKR,Config, Device_Type, 0x10001, 00, 00, 00, 00
+HKR,Config, Default_I2S_Format, 0x10001, 03, 00, 00, 00
+HKR,Config, SPDIF_Auto_Enable, 0x10001, 00, 00, 00, 00
+HKR,Config, SPDIF_Manual_Enable, 0x10001, 00, 00, 00, 00
+HKR,Config, Docking_Enable, 0x10001, 00, 00, 00, 00
+HKR,Config, Docking_Rec_Source, 0x10001, 00, 00, 00, 00	; 0/4:Pri/Sec
+
+HKR,Config, Default_Mono_Out, 0x10001, 00, 00, 00, 00	; 0/1:Mix/Mic
+HKR,Config, Enable_High_Pass_Filter, 0x10001, 01, 00, 00, 00
+
+[RunApp.AddReg]
+;HKLM,software\Microsoft\windows\CurrentVersion\RunOnce,FmctrlTray,,"Fmctrl.EXE"
+
+[FM801_GUID.AddReg]
+HKLM,%MediaCategories%\%FMGUID.Wave%,Name,,%FMPin.Wave%
+HKLM,%MediaCategories%\%FMGUID.Wave%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.FMSynth%,Name,,%FMPin.FMSynth%
+HKLM,%MediaCategories%\%FMGUID.FMSynth%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.I2S%,Name,,%FMPin.I2S%
+HKLM,%MediaCategories%\%FMGUID.I2S%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Mono%,Name,,%FMPin.Mono%
+HKLM,%MediaCategories%\%FMGUID.Mono%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Phone%,Name,,%FMPin.Phone%
+HKLM,%MediaCategories%\%FMGUID.Phone%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Mic%,Name,,%FMPin.Mic%
+HKLM,%MediaCategories%\%FMGUID.Mic%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.LineIn%,Name,,%FMPin.LineIn%
+HKLM,%MediaCategories%\%FMGUID.LineIn%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.CDPlayer%,Name,,%FMPin.CDPlayer%
+HKLM,%MediaCategories%\%FMGUID.CDPlayer%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Video%,Name,,%FMPin.Video%
+HKLM,%MediaCategories%\%FMGUID.Video%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Aux%,Name,,%FMPin.Aux%
+HKLM,%MediaCategories%\%FMGUID.Aux%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Mix%,Name,,%FMPin.Mix%
+HKLM,%MediaCategories%\%FMGUID.Mix%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.LineOut%,Name,,%FMPin.LineOut%
+HKLM,%MediaCategories%\%FMGUID.LineOut%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.WaveIn%,Name,,%FMPin.WaveIn%
+HKLM,%MediaCategories%\%FMGUID.WaveIn%,Display,1,00,00,00,00
+
+HKLM,%MediaCategories%\%FMGUID.I2SVol%,Name,,%FMPin.I2SVol%
+HKLM,%MediaCategories%\%FMGUID.I2SVol%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.I2SMute%,Name,,%FMPin.I2SMute%
+HKLM,%MediaCategories%\%FMGUID.I2SMute%,Display,1,00,00,00,00
+
+HKLM,%MediaCategories%\%FMGUID.RecPhone%,Name,,%FMPin.RecPhone%
+HKLM,%MediaCategories%\%FMGUID.RecPhone%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.RecMic%,Name,,%FMPin.RecMic%
+HKLM,%MediaCategories%\%FMGUID.RecMic%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.RecLine%,Name,,%FMPin.RecLine%
+HKLM,%MediaCategories%\%FMGUID.RecLine%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.RecCDPlayer%,Name,,%FMPin.RecCDPlayer%
+HKLM,%MediaCategories%\%FMGUID.RecCDPlayer%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.RecVideo%,Name,,%FMPin.RecVideo%
+HKLM,%MediaCategories%\%FMGUID.RecVideo%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.RecAux%,Name,,%FMPin.RecAux%
+HKLM,%MediaCategories%\%FMGUID.RecAux%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.RecMix%,Name,,%FMPin.RecMix%
+HKLM,%MediaCategories%\%FMGUID.RecMix%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Mic20DB%,Name,,%FMPin.Mic20DB%
+HKLM,%MediaCategories%\%FMGUID.Mic20DB%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Surround%,Name,,%FMPin.Surround%
+HKLM,%MediaCategories%\%FMGUID.Surround%,Display,1,00,00,00,00
+
+HKLM,%MediaCategories%\%FMGUID.Center%,Name,,%FMPin.Center%
+HKLM,%MediaCategories%\%FMGUID.Center%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Lfe%,Name,,%FMPin.Lfe%
+HKLM,%MediaCategories%\%FMGUID.Lfe%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Front%,Name,,%FMPin.Front%
+HKLM,%MediaCategories%\%FMGUID.Front%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.Depth%,Name,,%FMPin.Depth%
+HKLM,%MediaCategories%\%FMGUID.Depth%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.3DEnable%,Name,,%FMPin.3DEnable%
+HKLM,%MediaCategories%\%FMGUID.3DEnable%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.SPDIFOut%,Name,,%FMPin.SPDIFOut%
+HKLM,%MediaCategories%\%FMGUID.SPDIFOut%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%FMGUID.3D%,Name,,%FMPin.3D%
+HKLM,%MediaCategories%\%FMGUID.3D%,Display,1,00,00,00,00
+
+[FM802.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,,Driver,,fmjoyd.vxd
+HKLM,%Key_Joy%\%FM802.DeviceDesc%,,,
+HKLM,%Key_Joy%\%FM802.DeviceDesc%,OEMCallout,,fmjoyp.vxd
+HKLM,%Key_Joy%\%FM802.DeviceDesc%,OEMData,1,1,0,0,C,4,0,0,0
+HKLM,%Key_Joy%\%FM802.DeviceDesc%,OEMName,,%FM802.DeviceDesc%
+HKR,Config,"DISABLE_JOYSTICK",0x00001,00
+
+[JOYSTICK.AddReg]
+HKR,,DevLoader,,mmdevldr.vxd
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+
+[FM_JSTICK.AddReg]
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Description,,%FM802_GamePortEmu.DeviceDesc%
+HKR,Drivers\joystick\msjstick.drv,Driver,,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+
+[WDM_FM801.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,    FmdAud.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,	  FmdAud.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,  FmdAud.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,FmdAud.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,    WDM.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,   WDM.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,  WDM.Interface.UART
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_FMSynth%, WDM.Interface.FMSynth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_FMSynth%,WDM.Interface.FMSynth
+
+[FmdAud.Interface.Wave]
+AddReg=FmdAud.Interface.Wave.AddReg
+[FmdAud.Interface.Wave.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%FmdAud.Wave.szPname%
+
+[FmdAud.Interface.Topology]
+AddReg=FmdAud.Interface.Topo.AddReg
+[FmdAud.Interface.Topo.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%FmdAud.Topology.szPname%
+
+[WDM.Interface.UART]
+AddReg=WDM.Interface.UART.AddReg
+[WDM.Interface.UART.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.UART.szPname%
+
+[WDM.Interface.FMSynth]
+AddReg=WDM.Interface.FMSynth.AddReg
+[WDM.Interface.FMSynth.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%WDM.FMSynth.szPname%
+
+;;**************** NT Install ****************
+
+[WDM_FM801.NT]
+Include=ks.inf, wdmaudio.inf
+Needs=KS.Registration, WDMAUDIO.Registration
+CopyFiles=WDM_FM801.CopyList, Ini.CopyList, DLLFiles.CopyList, AuxFiles.CopyList
+AddReg=FM801.AddReg, FM801_MIXER.AddReg, FM801_GUID.AddReg, FM801_OPTIONS.AddReg
+
+[WDM_FM802.NT]
+CopyFiles=WDM_FM802.CopyList.NT
+
+[WDM_FM801.NT.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,    FmdAud.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,   FmdAud.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,  FmdAud.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,FmdAud.Interface.Topology
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_UART%,    WDM.Interface.UART
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_UART%,   WDM.Interface.UART
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_UART%,  WDM.Interface.UART
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_FMSynth%, WDM.Interface.FMSynth
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_FMSynth%,WDM.Interface.FMSynth
+
+[WDM_FM801.NT.Services]
+AddService = wdm_fm801,   0x00000002, wdm_fm801_Service_Inst
+
+[WDM_FM802.NT.Services]
+AddService=gameport,%SPSVCINST_ASSOCSERVICE%,GamePort_Service_Inst
+;AddService=pnpport,%SPSVCINST_ASSOCSERVICE%,PnpPort_Service_Inst
+
+[wdm_fm801_Service_Inst]
+DisplayName    = %wdm_fm801.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\fm801.sys
+
+[WDM_FM802.CopyList.NT]
+fmjoy.sys,fmjoy.sys,,6
+;fmpnp.sys,fmpnp.sys,,6
+
+[GamePort_Service_Inst]
+DisplayName    = %gameport.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 0
+ServiceBinary  = %12%\fmjoy.sys
+LoadOrderGroup = Extended Base
+
+[PnpPort_Service_Inst]
+DisplayName    = %pnpport.SvcDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 0
+ServiceBinary  = %12%\fmpnp.sys
+LoadOrderGroup = Extended Base
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE=0x00000002
+FMINC="ForteMedia, Inc."
+CLMfgName="ForteMedia, Inc."
+*WDM_FM801.DeviceDesc="FM801 PCI Audio (WDM)"
+FM802.DeviceDesc="FM801 PCI Joystick Controller" 
+;FM802.DeviceDesc="PCI Other Device" 
+FM802_GamePortEmu.DeviceDesc="FM801 Legacy Joystick"
+
+FmdAud.Wave.szPname="FM801 PCI Audio"
+FmdAud.Topology.szPname="FM801 Mixer"
+
+;; friendly names (non-localizeable)
+FMGUID.Wave      ="{AD019000-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.FMSynth   ="{AD019001-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.I2S       ="{AD019002-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Mono      ="{AD019003-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Phone     ="{AD019004-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Mic       ="{AD019005-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.LineIn    ="{AD019006-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.CDPlayer  ="{AD019007-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Video     ="{AD019008-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Aux       ="{AD019009-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Mix       ="{AD01900A-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.LineOut   ="{AD01900B-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.WaveIn    ="{AD01900C-6DB0-11D1-95A6-00C04FB925D3}"
+
+FMGUID.I2SVol    ="{AD01900D-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.I2SMute   ="{AD01900E-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecPhone  ="{AD01900F-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecMic    ="{AD019010-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecLine   ="{AD019011-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecCDPlayer ="{AD019012-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecVideo  ="{AD019013-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecAux    ="{AD019014-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.RecMix    ="{AD019015-6DB0-11D1-95A6-00C04FB925D3}"
+
+FMGUID.Mic20DB   = "{AD019016-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Surround  = "{AD019017-6DB0-11D1-95A6-00C04FB925D3}"
+
+FMGUID.Center    = "{AD019020-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Lfe       = "{AD019021-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.Front     = "{AD019022-6DB0-11D1-95A6-00C04FB925D3}"
+
+FMGUID.Depth     = "{AD019019-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.3DEnable  = "{AD01901A-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.3D        = "{AD01901B-6DB0-11D1-95A6-00C04FB925D3}"
+FMGUID.SPDIFOut  = "{AD01901C-6DB0-11D1-95A6-00C04FB925D3}"
+
+;; friendly names (localizeable)
+FMPin.Wave      ="Wave"
+FMPin.FMSynth   ="MIDI"
+FMPin.I2S       ="I2S"
+FMPin.Mono      ="Mono"
+FMPin.Phone     ="Phone"
+FMPin.Mic       ="Mic"
+FMPin.LineIn    ="Line In"
+FMPin.CDPlayer  ="CD"
+FMPin.Video     ="Video"
+FMPin.Aux       ="Aux"
+FMPin.Mix       ="Mix"
+FMPin.LineOut   ="Master"
+FMPin.WaveIn    ="Wave In"
+
+FMPin.I2SVol       ="I2S Vol"
+FMPin.I2SMute      ="I2S Mute"
+
+FMPin.RecPhone     ="Phone"
+FMPin.RecMic       ="Mic"
+FMPin.RecLine      ="Line"
+FMPin.RecCDPlayer  ="CD"
+FMPin.RecVideo     ="Video"
+FMPin.RecAux       ="Aux"
+FMPin.RecMix       ="Mix"
+
+FMPin.Mic20DB   ="20dB Boost"
+FMPin.Surround  ="Rear"
+
+FMPin.Center    ="Center"
+FMPin.Lfe       ="LFE"
+FMPin.Front     ="Front"
+FMPin.Depth     ="Depth"
+FMPin.3D        ="3D Enhancement"
+FMPin.3DEnable  ="3D Enable"
+FMPin.SPDIFOut  ="SPDIF Out Enable"
+
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+WDM_MIDI="WDM-based Device"
+Proxy.CLSID=        "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSNAME_Wave="Wave"
+KSNAME_UART="UART"
+KSNAME_FMSynth="FMSynth"
+KSNAME_Topology="Topology"
+KSNAME_Wavetable="Wavetable"
+
+WDM.UART.szPname="FM801 MPU-401"
+WDM.FMSynth.szPname="FM801 FM Synthesizer"
+WDM.SwSynth.szPname = "Microsoft GS Wavetable SW Synth"
+
+wdm_fm801.SvcDesc = "FM801 PCI Audio (WDM)"
+wdm_fm802.SvcDesc = "FM801 PCI MultiMedia Controller"
+gameport.SvcDesc = "FM801 PCI Joystick"
+pnpport.SvcDesc = "PCI Other Device"
+
+Key_Joy=System\CurrentControlSet\control\MediaProperties\PrivateProperties\Joystick\OEM
+KEY_IOC="SYSTEM\CurrentControlSet\Control\MediaResources\InstallOptionalComponents"
