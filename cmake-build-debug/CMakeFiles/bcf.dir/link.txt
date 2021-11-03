@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o -o bcf 
