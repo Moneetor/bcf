@@ -66,27 +66,27 @@ include CMakeFiles/bcf.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/bcf.dir/flags.make
 
-CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o: CMakeFiles/bcf.dir/flags.make
-CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o: ../dirstats/dirstats.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lineprog/github/bcf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o -c /home/lineprog/github/bcf/dirstats/dirstats.cpp
+CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o: CMakeFiles/bcf.dir/flags.make
+CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o: ../dirstats/dirstats-cli.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lineprog/github/bcf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o -c /home/lineprog/github/bcf/dirstats/dirstats-cli.cpp
 
-CMakeFiles/bcf.dir/dirstats/dirstats.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bcf.dir/dirstats/dirstats.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lineprog/github/bcf/dirstats/dirstats.cpp > CMakeFiles/bcf.dir/dirstats/dirstats.cpp.i
+CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lineprog/github/bcf/dirstats/dirstats-cli.cpp > CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.i
 
-CMakeFiles/bcf.dir/dirstats/dirstats.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bcf.dir/dirstats/dirstats.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lineprog/github/bcf/dirstats/dirstats.cpp -o CMakeFiles/bcf.dir/dirstats/dirstats.cpp.s
+CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lineprog/github/bcf/dirstats/dirstats-cli.cpp -o CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.s
 
 # Object files for target bcf
 bcf_OBJECTS = \
-"CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o"
+"CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o"
 
 # External object files for target bcf
 bcf_EXTERNAL_OBJECTS =
 
-bcf: CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o
+bcf: CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o
 bcf: CMakeFiles/bcf.dir/build.make
 bcf: CMakeFiles/bcf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lineprog/github/bcf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bcf"

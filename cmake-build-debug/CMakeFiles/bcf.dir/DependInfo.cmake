@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lineprog/github/bcf/dirstats/dirstats.cpp" "/home/lineprog/github/bcf/cmake-build-debug/CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o"
+  "/home/lineprog/github/bcf/dirstats/dirstats-cli.cpp" "/home/lineprog/github/bcf/cmake-build-debug/CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

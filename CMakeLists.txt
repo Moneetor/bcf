@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(dirstats)
 
 add_executable(bcf
-        dirstats/dirstats.cpp
-        dirstats/dirstats.h)
+        dirstats/dirstats-cli.cpp
+        dirstats/dirstats-cli.h)

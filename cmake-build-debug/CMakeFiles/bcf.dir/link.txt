@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o -o bcf 
+/usr/bin/c++ -g CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o -o bcf 

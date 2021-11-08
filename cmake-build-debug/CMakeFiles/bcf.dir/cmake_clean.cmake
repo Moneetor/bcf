@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o"
+  "CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o"
   "bcf"
   "bcf.pdb"
 )

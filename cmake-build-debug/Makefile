@@ -129,29 +129,29 @@ bcf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/build
 .PHONY : bcf/fast
 
-dirstats/dirstats.o: dirstats/dirstats.cpp.o
-.PHONY : dirstats/dirstats.o
+dirstats/dirstats-cli.o: dirstats/dirstats-cli.cpp.o
+.PHONY : dirstats/dirstats-cli.o
 
 # target to build an object file
-dirstats/dirstats.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/dirstats/dirstats.cpp.o
-.PHONY : dirstats/dirstats.cpp.o
+dirstats/dirstats-cli.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.o
+.PHONY : dirstats/dirstats-cli.cpp.o
 
-dirstats/dirstats.i: dirstats/dirstats.cpp.i
-.PHONY : dirstats/dirstats.i
+dirstats/dirstats-cli.i: dirstats/dirstats-cli.cpp.i
+.PHONY : dirstats/dirstats-cli.i
 
 # target to preprocess a source file
-dirstats/dirstats.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/dirstats/dirstats.cpp.i
-.PHONY : dirstats/dirstats.cpp.i
+dirstats/dirstats-cli.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.i
+.PHONY : dirstats/dirstats-cli.cpp.i
 
-dirstats/dirstats.s: dirstats/dirstats.cpp.s
-.PHONY : dirstats/dirstats.s
+dirstats/dirstats-cli.s: dirstats/dirstats-cli.cpp.s
+.PHONY : dirstats/dirstats-cli.s
 
 # target to generate assembly for a file
-dirstats/dirstats.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/dirstats/dirstats.cpp.s
-.PHONY : dirstats/dirstats.cpp.s
+dirstats/dirstats-cli.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bcf.dir/build.make CMakeFiles/bcf.dir/dirstats/dirstats-cli.cpp.s
+.PHONY : dirstats/dirstats-cli.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bcf"
-	@echo "... dirstats/dirstats.o"
-	@echo "... dirstats/dirstats.i"
-	@echo "... dirstats/dirstats.s"
+	@echo "... dirstats/dirstats-cli.o"
+	@echo "... dirstats/dirstats-cli.i"
+	@echo "... dirstats/dirstats-cli.s"
 .PHONY : help
 
 
