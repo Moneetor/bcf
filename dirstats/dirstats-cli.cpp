@@ -15,18 +15,18 @@ FileEntry::FileEntry(string filename) {
 void FileEntry::ScanFile() {
     ifstream ifile1;
     char buf[16000];
-    char fname[16000];
-    this.name.c_str();
     try {
-        ifile1.open(fname, "r");
+        ifile1.open(this->name.c_str(), ios_base::in);
         while (!ifile1.eof())
         {
             ifile1.getline(buf, 16000);
+            this->lines++;
         }
         ifile1.close();
     }
     catch (exception &E){
-
+        fputs("File read error", stderr);
+        fputs(this->name.c_str(), stderr);
     }
 }
 

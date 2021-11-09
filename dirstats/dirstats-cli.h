@@ -21,11 +21,11 @@ public:
     int files;
     int dirs;
     bool scanned;
-    queue<string> Files, ScannedFiles;
-    queue<string> Dirs, ScannedDirs;
+    static queue<string> Files, ScannedFiles;
+    static queue<string> Dirs, ScannedDirs;
     DirEntry(string dirname);
     ~DirEntry()= default;;
-    static void ScanDir();
+    void ScanDir();
 };
 class FileEntry
 {
@@ -35,7 +35,7 @@ public:
     int words;
     bool scanned;
     FileEntry(string filename);
-    static void ScanFile();
+    void ScanFile();
     ~FileEntry(){};
 };
 #endif //BCF_DIRSTATS_CLI_H
