@@ -14,18 +14,25 @@ FileEntry::FileEntry(string filename) {
 
 void FileEntry::ScanFile() {
     ifstream ifile1;
+    stringstream streamBuf;
     char buf[16000];
     try {
         ifile1.open(this->name.c_str(), ios_base::in);
+        // odczyt ilości linii
         while (!ifile1.eof())
         {
             ifile1.getline(buf, 16000);
+            streamBuf<<buf;
+            while (streamBuf.get(buf,16000))
+            {
+                this->words++;
+            }
             this->lines++;
         }
         ifile1.close();
     }
     catch (exception &E){
-        fputs("File read error", stderr);
+        fputs("File read error: ", stderr);
         fputs(this->name.c_str(), stderr);
     }
 }

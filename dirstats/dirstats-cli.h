@@ -7,6 +7,7 @@
 #include <queue>
 #include <string>
 #include "dirent.h"
+#include "sstream"
 #include "thread"
 
 using namespace std;
