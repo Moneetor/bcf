@@ -21,6 +21,30 @@ DirEntry::DirEntry(string dirname) {
     this->scanned=false;
 }
 
+void DirEntry::ScanDir() {
+    DIR *dir;
+    struct dirent *entry;
+    if ((dir = opendir(this->name.c_str())) == NULL)
+        perror("Can't read directory");
+    else{
+        while ((entry = readdir(dir)) != NULL)
+        {
+            //add found directory to queue
+            if (entry->d_type == DT_DIR)
+            {
+                this->dirs++;
+                this->Dirs.push(this->name + string(entry->d_name));
+            }
+            //add found file to queue
+            if (entry->d_type == DT_REG)
+            {
+                this->files++;
+                this->Files.push(this->name + string(entry->d_name));
+            }
+        }
+        closedir(dir);
+    }
+}
 FileEntry::FileEntry(string filename) {
     this->name = std::move(filename);
     this->lines = 0;
