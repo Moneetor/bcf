@@ -33,13 +33,13 @@ void DirEntry::ScanDir() {
             if (entry->d_type == DT_DIR)
             {
                 this->dirs++;
-                this->Dirs.push(this->name + string(entry->d_name));
+                DirEntry::Dirs.push(this->name + entry->d_name);
             }
             //add found file to queue
             if (entry->d_type == DT_REG)
             {
                 this->files++;
-                this->Files.push(this->name + string(entry->d_name));
+                DirEntry::Files.push(this->name + string(entry->d_name));
             }
         }
         closedir(dir);
