@@ -5,6 +5,22 @@
 
 #include <utility>
 
+DirEntry::DirEntry() {
+    char cwd[16000];
+    if ((getcwd(cwd, 16000)) != nullptr)
+        this->name = string(cwd);
+    this->dirs=0;
+    this->files=0;
+    this->scanned=false;
+}
+
+DirEntry::DirEntry(string dirname) {
+    this->name=std::move(dirname);
+    this->dirs=0;
+    this->files=0;
+    this->scanned=false;
+}
+
 FileEntry::FileEntry(string filename) {
     this->name = std::move(filename);
     this->lines = 0;
@@ -30,6 +46,7 @@ void FileEntry::ScanFile() {
             this->lines++;
         }
         ifile1.close();
+        this->scanned = true;
     }
     catch (exception &E){
         fputs("File read error: ", stderr);
@@ -37,15 +54,15 @@ void FileEntry::ScanFile() {
     }
 }
 
-int main()
+
+int main(int argc, char ** argv)
 {
-    cout<<"Hello";
-}
-
-DirEntry::DirEntry(string dirname) {
-    this->name=std::move(dirname);
-    this->dirs=0;
-    this->files=0;
-    this->scanned=false;
-
+    if (argc<2)
+    {
+        cout<<"Proszę wybrać plik.";
+    } else{
+        for (int i = 0; i < argc; i++) {
+            cout<<argv[0]<<" ";
+        }
+    }
 }

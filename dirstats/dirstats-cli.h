@@ -9,6 +9,7 @@
 #include "dirent.h"
 #include "sstream"
 #include "thread"
+#include <unistd.h>
 
 using namespace std;
 
@@ -19,12 +20,13 @@ class DirEntry
 {
 public:
     string name;
-    int files;
-    int dirs;
-    bool scanned;
-    static queue<string> Files, ScannedFiles;
-    static queue<string> Dirs, ScannedDirs;
-    DirEntry(string dirname);
+    int files{};
+    int dirs{};
+    bool scanned{};
+    static queue<string> Files, ScannedFiles, ProcessingFiles;
+    static queue<string> Dirs, ScannedDirs, ProcessingDirs;
+    DirEntry();
+    explicit DirEntry(string dirname);
     ~DirEntry()= default;;
     void ScanDir();
 };
@@ -35,7 +37,7 @@ public:
     int lines;
     int words;
     bool scanned;
-    FileEntry(string filename);
+    explicit FileEntry(string filename);
     void ScanFile();
     ~FileEntry(){};
 };
